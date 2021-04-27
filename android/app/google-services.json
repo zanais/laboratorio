@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "261341650981",
+    "firebase_url": "https://chatmoviles-26ca5-default-rtdb.firebaseio.com",
+    "project_id": "chatmoviles-26ca5",
+    "storage_bucket": "chatmoviles-26ca5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261341650981:android:e87cd2cb0fd46edba9dfcc",
+        "android_client_info": {
+          "package_name": "com.example.laboratorio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261341650981-7qtj4ejkhj4podlr5uiatj5a67ur64qv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3dPtkzJHcWRd42nT7NKGe_1Hqq9zYn9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261341650981-7qtj4ejkhj4podlr5uiatj5a67ur64qv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

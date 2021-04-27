@@ -1,14 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:laboratorio/chats.dart';
-
+import 'package:laboratorio/default.dart';
+import 'package:laboratorio/models/UsuarioLiga.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'main.dart';
 
+List<UsuarioLiga> lstUsuariosLiga = [];
+final usuariosReferences =
+    FirebaseDatabase.instance.reference().child('Usuarios');
+
 class ListaChats extends StatefulWidget {
+  int _numero;
+  String keyUsuario;
+  ListaChats(this._numero, this.keyUsuario);
   @override
-  _ListaChatsState createState() => _ListaChatsState();
+  _ListaChatsState createState() {
+    return _ListaChatsState(this._numero, this.keyUsuario);
+  }
+  // => _ListaChatsState();
 }
 
 class _ListaChatsState extends State<ListaChats> {
+  int _numero;
+  String keyUsuario;
+  _ListaChatsState(this._numero, this.keyUsuario);
+  @override
+  void initState() {
+    super.initState();
+    getUsuariosAgregados();
+  }
+
+  void getUsuariosAgregados() {
+    lstUsuariosLiga = [];
+    usuariosReferences
+        .child(keyUsuario)
+        .child('UsuarioLiga')
+        .once()
+        .then((DataSnapshot snapshot) {
+      Map<dynamic, dynamic> getMapPrductos = snapshot.value;
+      getMapPrductos.forEach((key, value) {
+        Map<dynamic, dynamic> f = value;
+        UsuarioLiga usuarioLigado = UsuarioLiga("", "", 0);
+        var s = f["Precio"];
+        usuarioLigado.idUsuario = key;
+        usuarioLigado.nombre = f["nombre"];
+        usuarioLigado.numero = f["numero"];
+        setState(() {
+          lstUsuariosLiga.add(usuarioLigado);
+        });
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,19 +73,58 @@ class _ListaChatsState extends State<ListaChats> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MyHomePage()));
+                              builder: (context) => Default(_numero)));
                     },
                   ),
                   Text('Mensajes'),
                 ],
               ),
-              Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Contactos("M", "Marcos Medina"),
-                  Contactos("E", "Eduardo Medina"),
-                  Contactos("S", "Carlos Tovar ")
-                ],
+              Expanded(
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: lstUsuariosLiga.length,
+                            itemBuilder: (context, index) {
+                              return Contactos(
+                                  "${lstUsuariosLiga[index].nombre}",
+                                  "${lstUsuariosLiga[index].nombre.substring(0, 1)}");
+                              // Padding(
+                              //   padding: const EdgeInsets.all(8.15),
+                              //   child: Card(
+                              //     color: Colors.deepPurpleAccent,
+                              //     child: Column(
+                              //       children: [
+                              //         Row(
+                              //           mainAxisAlignment:
+                              //               MainAxisAlignment.spaceEvenly,
+                              //           children: <Widget>[
+                              //             CircleAvatar(
+                              //               child: Text(
+                              //                   "${lstUsuariosLiga[index].nombre.substring(0, 1)}"),
+                              //               maxRadius: 25.0,
+                              //             ),
+                              //             Text(
+                              //               "${lstUsuariosLiga[index].nombre}",
+                              //               textAlign: TextAlign.center,
+                              //             ),
+                              //             // Text(
+                              //             //   "\$:  ${lstCemento[index].precio}",
+                              //             //   textAlign: TextAlign.center,
+                              //             // ),
+                              //           ],
+                              //         ),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // );
+                            }),
+                      )
+                    ],
+                  ),
+                ),
               )
             ],
           ),
@@ -53,9 +135,9 @@ class _ListaChatsState extends State<ListaChats> {
 }
 
 class Contactos extends StatelessWidget {
-  Contactos(this.inicial, this.nombre);
-  String inicial;
+  Contactos(this.nombre, this.iniciales);
   String nombre;
+  String iniciales;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -66,7 +148,7 @@ class Contactos extends StatelessWidget {
             children: [
               CircleAvatar(
                 child: Text(
-                  "$inicial",
+                  "$iniciales",
                   style: TextStyle(fontSize: 20.0, color: Colors.white),
                 ),
                 backgroundColor: Colors.blueGrey,

@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:laboratorio/agregar_nuevo.dart';
+import 'package:laboratorio/default.dart';
 import 'package:laboratorio/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RealizarLlamadas extends StatefulWidget {
+  int _numero;
+  RealizarLlamadas(this._numero);
   @override
-  _RealizarLlamadasState createState() => _RealizarLlamadasState();
+  _RealizarLlamadasState createState() {
+    return _RealizarLlamadasState(this._numero);
+  }
+  // => _RealizarLlamadasState();
 }
 
 class _RealizarLlamadasState extends State<RealizarLlamadas> {
+  int numero;
+  _RealizarLlamadasState(this.numero);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +33,10 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
                 IconButton(
                   icon: new Icon(Icons.home),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Default(numero)));
                   },
                 ),
                 Text('Realizar llamada'),
@@ -75,7 +85,7 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AgregarNuevoContacto(),
+                      builder: (context) => AgregarNuevoContacto(numero),
                     ));
               },
               child: Text('Agregar numero telefonico'),
