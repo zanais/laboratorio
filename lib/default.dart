@@ -43,6 +43,16 @@ class _DefaultState extends State<Default> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('Easy Help'),
+            IconButton(
+              icon: new Icon(Icons.call),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RealizarLlamadas(numero)));
+              },
+            ),
             TextButton(
               onPressed: () {
                 Navigator.push(
@@ -50,7 +60,16 @@ class _DefaultState extends State<Default> {
                     MaterialPageRoute(
                         builder: (context) => RealizarLlamadas(numero)));
               },
-              child: Text('prueba'),
+              child: Text('Telefono'),
+            ),
+            IconButton(
+              icon: new Icon(Icons.message),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ListaChats(numero, keyUsuario)));
+              },
             ),
             TextButton(
               onPressed: () {
@@ -59,7 +78,7 @@ class _DefaultState extends State<Default> {
                     MaterialPageRoute(
                         builder: (context) => ListaChats(numero, keyUsuario)));
               },
-              child: Text('chat'),
+              child: Text('Mensajes'),
             )
           ],
         ),
