@@ -90,7 +90,10 @@ class _ListaChatsState extends State<ListaChats> {
                             itemBuilder: (context, index) {
                               return Contactos(
                                   "${lstUsuariosLiga[index].nombre}",
-                                  "${lstUsuariosLiga[index].nombre.substring(0, 1)}");
+                                  "${lstUsuariosLiga[index].nombre.substring(0, 1)}",
+                                  _numero,
+                                  keyUsuario,
+                                  lstUsuariosLiga[index].numero);
                               // Padding(
                               //   padding: const EdgeInsets.all(8.15),
                               //   child: Card(
@@ -135,9 +138,13 @@ class _ListaChatsState extends State<ListaChats> {
 }
 
 class Contactos extends StatelessWidget {
-  Contactos(this.nombre, this.iniciales);
+  Contactos(
+      this.nombre, this.iniciales, this._numero, this.keyUsuario, this.para);
   String nombre;
   String iniciales;
+  int _numero;
+  String keyUsuario;
+  int para;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -166,8 +173,11 @@ class Contactos extends StatelessWidget {
             children: [
               TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Chats()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Chats(_numero, keyUsuario, para)));
                   },
                   child: Column(
                     children: <Widget>[
