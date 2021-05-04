@@ -40,13 +40,28 @@ class _DefaultState extends State<Default> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Easy Help'),
+        //backgroundColor: Colors.lightBlue,
+        body: Center(
+            child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      //crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Text('Easy Help',
+            style: TextStyle(
+              fontSize: 25,
+            )),
+        SizedBox(
+          height: 40,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
             IconButton(
-              icon: new Icon(Icons.call),
+              icon: new Icon(
+                Icons.call,
+                size: 35,
+              ),
               onPressed: () {
                 Navigator.push(
                     context,
@@ -54,17 +69,11 @@ class _DefaultState extends State<Default> {
                         builder: (context) => RealizarLlamadas(numero)));
               },
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => RealizarLlamadas(numero)));
-              },
-              child: Text('Telefono'),
-            ),
             IconButton(
-              icon: new Icon(Icons.message),
+              icon: new Icon(
+                Icons.message,
+                size: 35,
+              ),
               onPressed: () {
                 Navigator.push(
                     context,
@@ -72,18 +81,9 @@ class _DefaultState extends State<Default> {
                         builder: (context) => ListaChats(numero, keyUsuario)));
               },
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ListaChats(numero, keyUsuario)));
-              },
-              child: Text('Mensajes'),
-            )
           ],
         ),
-      ),
-    );
+      ],
+    )));
   }
 }

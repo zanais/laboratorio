@@ -71,7 +71,10 @@ class _ChatsState extends State<Chats> {
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   IconButton(
-                    icon: new Icon(Icons.home),
+                    icon: new Icon(
+                      Icons.home,
+                      size: 35,
+                    ),
                     onPressed: () {
                       Navigator.push(
                           context,
@@ -79,7 +82,10 @@ class _ChatsState extends State<Chats> {
                               builder: (context) => MyHomePage()));
                     },
                   ),
-                  Text('Mensajes'),
+                  Text(
+                    'Mensajes',
+                    style: TextStyle(fontSize: 25),
+                  ),
                 ],
               ),
               Column(
