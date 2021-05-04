@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laboratorio/default.dart';
-import 'package:laboratorio/main.dart';
+//import 'package:laboratorio/main.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:laboratorio/models/usuarios.dart';
 
@@ -57,7 +57,10 @@ class _AgregarNuevoContactoState extends State<AgregarNuevoContacto> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                  icon: new Icon(Icons.home),
+                  icon: new Icon(
+                    Icons.home,
+                    size: 35,
+                  ),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -65,7 +68,10 @@ class _AgregarNuevoContactoState extends State<AgregarNuevoContacto> {
                             builder: (context) => Default(numero)));
                   },
                 ),
-                Text('Agregar Contacto'),
+                Text(
+                  'Agregar Contacto',
+                  style: TextStyle(fontSize: 25),
+                )
               ],
             ),
             TextField(
@@ -92,7 +98,7 @@ class _AgregarNuevoContactoState extends State<AgregarNuevoContacto> {
                 border: OutlineInputBorder(),
               ),
             ),
-            TextButton(
+            ElevatedButton(
               onPressed: () {
                 usuariosReferences
                     .child(keyUsuario)
@@ -121,7 +127,10 @@ class _AgregarNuevoContactoState extends State<AgregarNuevoContacto> {
                   print(e);
                 });
               },
-              child: Text('Añadir contacto'),
+              child: Text('Añadir contacto',
+                  style: TextStyle(
+                    color: Colors.black,
+                  )),
             ),
           ],
         ),

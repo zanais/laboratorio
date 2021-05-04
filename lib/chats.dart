@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chat_list/chat_list.dart';
+//import 'package:chat_list/chat_list.dart';
 import 'package:laboratorio/models/UsuarioLiga.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'const.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laboratorio/agregar_nuevo.dart';
 import 'package:laboratorio/default.dart';
-import 'package:laboratorio/main.dart';
+//import 'package:laboratorio/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RealizarLlamadas extends StatefulWidget {
@@ -28,10 +28,14 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.stretch,
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                  icon: new Icon(Icons.home),
+                  icon: new Icon(
+                    Icons.home,
+                    size: 35,
+                  ),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -39,7 +43,10 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
                             builder: (context) => Default(numero)));
                   },
                 ),
-                Text('Realizar llamada'),
+                Text(
+                  'Realizar llamada',
+                  style: TextStyle(fontSize: 25),
+                ),
               ],
             ),
             Row(
@@ -50,14 +57,18 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
                     IconButton(
                         icon: new Icon(Icons.call),
                         onPressed: () {
-                          launch("tel://+8183212486");
+                          launch("tel://911");
                         }),
-                    Text('EMME'),
+                    Text('911'),
                   ],
                 ),
                 Column(
                   children: <Widget>[
-                    IconButton(icon: new Icon(Icons.call), onPressed: null),
+                    IconButton(
+                        icon: new Icon(Icons.call),
+                        onPressed: () {
+                          launch("tel://+52 81 1846 4778");
+                        }),
                     Text('Hijo'),
                   ],
                 )
@@ -68,19 +79,27 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    IconButton(icon: new Icon(Icons.call), onPressed: null),
+                    IconButton(
+                        icon: new Icon(Icons.call),
+                        onPressed: () {
+                          launch("tel://+52 1 81 2617 6262");
+                        }),
                     Text('Hijo'),
                   ],
                 ),
                 Column(
                   children: <Widget>[
-                    IconButton(icon: new Icon(Icons.call), onPressed: null),
-                    Text('Emergencias'),
+                    IconButton(
+                        icon: new Icon(Icons.call),
+                        onPressed: () {
+                          launch("tel://+52 1 81 1695 9821");
+                        }),
+                    Text('EMME'),
                   ],
                 )
               ],
             ),
-            TextButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(
                     context,
@@ -88,7 +107,12 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
                       builder: (context) => AgregarNuevoContacto(numero),
                     ));
               },
-              child: Text('Agregar numero telefonico'),
+              child: Text(
+                'Agregar numero telefonico',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),
