@@ -74,7 +74,6 @@ class _MyHomePageState extends State<MyHomePage> {
             TextField(
                 keyboardType: TextInputType.phone,
                 textAlign: TextAlign.center,
-                keyboardType: TextInputType.phone,
                 onChanged: (value) {
                   numero = int.parse(value);
                 },
