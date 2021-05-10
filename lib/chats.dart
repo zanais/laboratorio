@@ -75,95 +75,6 @@ class _ChatsState extends State<Chats> {
         ),
       ),
       backgroundColor: Colors.blue[300],
-      // body: SafeArea(
-      //   child: Column(
-      //     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     children: <Widget>[
-      //       Row(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         //crossAxisAlignment: CrossAxisAlignment.center,
-      //         children: <Widget>[
-      //           IconButton(
-      //             icon: new Icon(Icons.home),
-      //             onPressed: () {
-      //               Navigator.push(context,
-      //                   MaterialPageRoute(builder: (context) => MyHomePage()));
-      //             },
-      //           ),
-      //           Text('Mensajes'),
-      //         ],
-      //       ),
-      //       Column(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         children: <Widget>[
-      //           SafeArea(
-      //             child: Column(
-      //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //               crossAxisAlignment: CrossAxisAlignment.stretch,
-      //               children: <Widget>[
-      //                 MessagesStream(_numero, para),
-      //                 // MessageBubble(
-      //                 //     sender: "Marcos", text: "Hola", logedUser: false),
-      //                 // MessageBubble(
-      //                 //     sender: "Pedro", text: "Hola", logedUser: true),
-      //                 // MessageBubble(
-      //                 //     sender: "Marcos",
-      //                 //     text: "Como estas",
-      //                 //     logedUser: false),
-      //                 Container(
-      //                   decoration: kMessageContainerDecoration,
-      //                   child: Row(
-      //                     crossAxisAlignment: CrossAxisAlignment.center,
-      //                     children: <Widget>[
-      //                       Expanded(
-      //                         child: TextField(
-      //                           // controller: messageTextController,
-      //                           onChanged: (value) {
-      //                             mensaje = value;
-      //                           },
-      //                           decoration: kMessageTextFieldDecoration,
-      //                         ),
-      //                       ),
-      //                       TextButton(
-      //                         onPressed: () {
-      //                           DateTime now = new DateTime.now();
-      //                           DateTime date = new DateTime(
-      //                               now.year,
-      //                               now.month,
-      //                               now.day,
-      //                               now.hour,
-      //                               now.minute,
-      //                               now.second);
-      //                           mensajesReference
-      //                               .push()
-      //                               .set({
-      //                                 'numero': _numero,
-      //                                 'mensaje': mensaje,
-      //                                 'para': para,
-      //                                 'fecha': date.toString()
-      //                               })
-      //                               .then((_) {})
-      //                               .onError((error, stackTrace) {
-      //                                 print(error);
-      //                               });
-      //                         },
-      //                         child: Text(
-      //                           'Enviar',
-      //                           style: kSendButtonTextStyle,
-      //                         ),
-      //                       ),
-      //                     ],
-      //                   ),
-      //                 ),
-      //               ],
-      //             ),
-      //           ),
-      //         ],
-      //       )
-      //     ],
-      //   ),
-      // ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -217,21 +128,6 @@ class _ChatsState extends State<Chats> {
     );
   }
 }
-
-// class MessagesStream extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Expanded(
-//       child: ListView(
-//         reverse: true,
-//         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-//         children: <Widget>[
-//           MessageBubble(sender: "Marcos", text: "Hola", logedUser: false),
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class MessageBubble extends StatelessWidget {
   MessageBubble({this.sender, this.text, this.logedUser});
