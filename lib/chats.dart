@@ -175,7 +175,6 @@ class _ChatsState extends State<Chats> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-<<<<<<< HEAD
                   Expanded(
                     child: TextField(
                       controller: messageTextController,
@@ -186,13 +185,6 @@ class _ChatsState extends State<Chats> {
                     ),
                   ),
                   TextButton(
-=======
-                  IconButton(
-                    icon: new Icon(
-                      Icons.home,
-                      size: 35,
-                    ),
->>>>>>> 6e56025a57bdffa486c9654ee8a740643d0f6a43
                     onPressed: () {
                       messageTextController.clear();
                       DateTime now = new DateTime.now();
@@ -211,78 +203,9 @@ class _ChatsState extends State<Chats> {
                             print(error);
                           });
                     },
-<<<<<<< HEAD
                     child: Text(
                       'Enviar',
                       style: kSendButtonTextStyle,
-=======
-                  ),
-                  Text(
-                    'Mensajes',
-                    style: TextStyle(fontSize: 25),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SafeArea(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        MessagesStream(_numero),
-                        // MessageBubble(
-                        //     sender: "Marcos", text: "Hola", logedUser: false),
-                        // MessageBubble(
-                        //     sender: "Pedro", text: "Hola", logedUser: true),
-                        // MessageBubble(
-                        //     sender: "Marcos",
-                        //     text: "Como estas",
-                        //     logedUser: false),
-                        Container(
-                          decoration: kMessageContainerDecoration,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Expanded(
-                                child: TextField(
-                                  // controller: messageTextController,
-                                  onChanged: (value) {
-                                    mensaje = value;
-                                  },
-                                  decoration: kMessageTextFieldDecoration,
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  DateTime now = new DateTime.now();
-                                  DateTime date = new DateTime(
-                                      now.year, now.month, now.day);
-                                  mensajesReference
-                                      .push()
-                                      .set({
-                                        'numero': _numero,
-                                        'mensaje': mensaje,
-                                        'para': para,
-                                        'fecha': date.toString()
-                                      })
-                                      .then((_) {})
-                                      .onError((error, stackTrace) {
-                                        print(error);
-                                      });
-                                  ;
-                                },
-                                child: Text(
-                                  'Enviar',
-                                  style: kSendButtonTextStyle,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
->>>>>>> 6e56025a57bdffa486c9654ee8a740643d0f6a43
                     ),
                   ),
                 ],
