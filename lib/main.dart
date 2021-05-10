@@ -66,18 +66,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        margin: EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextField(
                 keyboardType: TextInputType.phone,
                 textAlign: TextAlign.center,
+                keyboardType: TextInputType.phone,
                 onChanged: (value) {
                   numero = int.parse(value);
                 },
                 decoration: kTextFieldDecoration.copyWith(hintText: 'Numero')),
-            TextButton(
+            SizedBox(height: 20),
+            ElevatedButton(
               onPressed: () {
                 var existe = lstUsuarios
                     .where((element) => element.numero == numero)
