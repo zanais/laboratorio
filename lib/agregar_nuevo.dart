@@ -37,8 +37,9 @@ class _AgregarNuevoContactoState extends State<AgregarNuevoContacto> {
       getMapPrductos.forEach((key, value) {
         Map<dynamic, dynamic> f = value;
         var numeroVerificar = f["numero"];
-        if (numeroVerificar == numero) {}
-        keyUsuario = key;
+        if (numeroVerificar == numero) {
+          keyUsuario = key;
+        }
       });
     });
   }
@@ -48,32 +49,42 @@ class _AgregarNuevoContactoState extends State<AgregarNuevoContacto> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.blue[300],
+      appBar: AppBar(
+        title: Text('Agregar Contacto'),
+        leading: IconButton(
+          icon: new Icon(Icons.home),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Default(numero)));
+          },
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                  icon: new Icon(
-                    Icons.home,
-                    size: 35,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Default(numero)));
-                  },
-                ),
-                Text(
-                  'Agregar Contacto',
-                  style: TextStyle(fontSize: 25),
-                )
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: <Widget>[
+            //     IconButton(
+            //       icon: new Icon(
+            //         Icons.home,
+            //         size: 35,
+            //       ),
+            //       onPressed: () {
+            //         Navigator.push(
+            //             context,
+            //             MaterialPageRoute(
+            //                 builder: (context) => Default(numero)));
+            //       },
+            //     ),
+            //     Text(
+            //       'Agregar Contacto',
+            //       style: TextStyle(fontSize: 25),
+            //     )
+            //   ],
+            // ),
             TextField(
               keyboardType: TextInputType.name,
               onChanged: (value) {

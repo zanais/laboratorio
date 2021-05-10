@@ -21,34 +21,44 @@ class _RealizarLlamadasState extends State<RealizarLlamadas> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[300],
+      appBar: AppBar(
+        title: Text('Realizar llamada'),
+        leading: IconButton(
+          icon: new Icon(Icons.home),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Default(numero)));
+          },
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              //crossAxisAlignment: CrossAxisAlignment.stretch,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                  icon: new Icon(
-                    Icons.home,
-                    size: 35,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Default(numero)));
-                  },
-                ),
-                Text(
-                  'Realizar llamada',
-                  style: TextStyle(fontSize: 25),
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   //crossAxisAlignment: CrossAxisAlignment.stretch,
+            //   //crossAxisAlignment: CrossAxisAlignment.center,
+            //   children: <Widget>[
+            //     IconButton(
+            //       icon: new Icon(
+            //         Icons.home,
+            //         size: 35,
+            //       ),
+            //       onPressed: () {
+            //         Navigator.push(
+            //             context,
+            //             MaterialPageRoute(
+            //                 builder: (context) => Default(numero)));
+            //       },
+            //     ),
+            //     Text(
+            //       'Realizar llamada',
+            //       style: TextStyle(fontSize: 25),
+            //     ),
+            //   ],
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

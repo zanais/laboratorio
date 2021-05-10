@@ -71,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextField(
+                keyboardType: TextInputType.phone,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   numero = int.parse(value);

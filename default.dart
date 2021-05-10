@@ -30,8 +30,9 @@ class _DefaultState extends State<Default> {
       getMapPrductos.forEach((key, value) {
         Map<dynamic, dynamic> f = value;
         var numeroVerificar = f["numero"];
-        if (numeroVerificar == numero) {}
-        keyUsuario = key;
+        if (numeroVerificar == numero) {
+          keyUsuario = key;
+        }
       });
     });
   }
@@ -44,12 +45,15 @@ class _DefaultState extends State<Default> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Easy Help'),
-             IconButton(
-                  icon: new Icon(Icons.call),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => RealizarLlamadas(numero)));
-                  },),
+            IconButton(
+              icon: new Icon(Icons.call),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RealizarLlamadas(numero)));
+              },
+            ),
             TextButton(
               onPressed: () {
                 Navigator.push(
@@ -60,11 +64,14 @@ class _DefaultState extends State<Default> {
               child: Text('Telefono'),
             ),
             IconButton(
-                  icon: new Icon(Icons.message),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ListaChats(numero, keyUsuario)));
-                  },),
+              icon: new Icon(Icons.message),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ListaChats(numero, keyUsuario)));
+              },
+            ),
             TextButton(
               onPressed: () {
                 Navigator.push(

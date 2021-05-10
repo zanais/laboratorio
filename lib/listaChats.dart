@@ -55,6 +55,16 @@ class _ListaChatsState extends State<ListaChats> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Contactos'),
+        leading: IconButton(
+          icon: new Icon(Icons.home),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Default(_numero)));
+          },
+        ),
+      ),
       backgroundColor: Colors.blue[300],
       body: Center(
         child: Padding(
@@ -63,22 +73,22 @@ class _ListaChatsState extends State<ListaChats> {
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                //crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  IconButton(
-                    icon: new Icon(Icons.home),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Default(_numero)));
-                    },
-                  ),
-                  Text('Mensajes'),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   //crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: <Widget>[
+              //     IconButton(
+              //       icon: new Icon(Icons.home),
+              //       onPressed: () {
+              //         Navigator.push(
+              //             context,
+              //             MaterialPageRoute(
+              //                 builder: (context) => Default(_numero)));
+              //       },
+              //     ),
+              //     Text('Mensajes'),
+              //   ],
+              // ),
               Expanded(
                 child: Container(
                   child: Column(
